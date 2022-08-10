@@ -5,12 +5,13 @@ import { Link } from 'react-router-dom'
 const SignUp = () => {
     return (
         <div>
-            <Row md={2} lg={2} style={{ height: "100vh" }}>
+            <Row md={2} lg={2} style={{ height: "100vh" }} className="m-0">
 
                 <Col md={6} lg={6} className='bg-signup-img'>
                     {/* <div ></div> */}
                 </Col>
-                <Col md={6} lg={6} className='bg-form d-flex justify-content-center align-items-center' >
+                <Col md={6} lg={6}
+                className='bg-form d-flex justify-content-center align-items-center' >
                     <Form className="w-50">
                         <Form.Group className="mb-3" controlId="formBasicFirstname">
                             <Form.Label>First Name</Form.Label>
@@ -30,7 +31,7 @@ const SignUp = () => {
                         </Form.Group>
 
                         <Button className='w-100 mt-4 bg-button' size="lg" variant="dark">sign up</Button>
-                        <p style={{fontSize:"20px"}}>
+                        <p style={{fontSize:"20px"}} className="p-3 text-center">
                             have an account ,<Link to="/" style={{textDecoration:"none"}}>loge in</Link>
                         </p>
                     </Form>
