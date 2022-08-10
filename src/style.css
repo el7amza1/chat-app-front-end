@@ -1,0 +1,15 @@
+
+
+
+.bg-signup-img{
+    background-image: url(images/signup.jpg);
+    background-size: cover;
+
+}
+
+.bg-form{
+    background-color: #eeeeee;
+}
+.bg-button{
+    background-color: #464646 !important;
+}
