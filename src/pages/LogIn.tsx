@@ -1,12 +1,31 @@
 import React from "react";
-import { Col, Row,Form, Button } from "react-bootstrap";
+import { Col, Row,Form, Button, InputGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import login from "../images/login-image.jpg";
+import * as Yup from 'yup';
+import {ErrorMessage, useFormik} from "formik"
+
 
 const LogIn = () => {
+  const formik = useFormik(  {
+    initialValues: {
+
+      email: "",
+      password:"",
+    },
+    onSubmit: (values) => {
+        
+       
+       formik.resetForm();
+    },
+    validationSchema: Yup.object({
+      email: Yup.string().required().min(5).max(80, "limit passed"),
+      password: Yup.string().required().min(8).max(50, "limit passed"),
+    }),
+  })
   return (
     <>
-      <Row className="mx-0  " md={2} lg={2} style={{ height: "96.2vh" }}>
+      <Row className="mx-0  " md={2} lg={2} style={{ height: "100vh" }}>
         <Col
           xs={6}
           md={6}
@@ -24,30 +43,71 @@ const LogIn = () => {
           className="d-flex justify-content-center align-items-center"
           style={{ backgroundColor: "#eeeeee" }}
         >
-          <Form className="w-50">
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
-              <Form.Control type="email" placeholder="Enter email" />
-            </Form.Group>
+          <Form className="w-50" onSubmit={formik.handleSubmit}>
+          <Form.Group as={Col} md="12" controlId="validationFormikEmail2">
+                  <Form.Label>Email</Form.Label>
+                  <InputGroup hasValidation>
+                    {/* <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text> */}
+                    <Form.Control
+                      type="email"
+                      placeholder="Email"
+                      // aria-describedby="inputGroupPrepend"
+                      name="email"
+                      value={formik.values.email}
+                      size='lg'
+                      onBlur={formik.handleBlur}
+                      isValid={formik.touched.email && !formik.errors.email}
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label className="">Password</Form.Label>
-              <Form.Control type="password" placeholder="Password" />
-            </Form.Group>
+                      onChange={formik.handleChange}
+                      isInvalid={formik.touched.email && !!formik.errors.email}
+                      />
+                    <Form.Control.Feedback type="invalid" tooltip>
+                    {formik.touched.email && formik.errors.email }
+                    </Form.Control.Feedback>
+                    <Form.Control.Feedback tooltip>Looks good!</Form.Control.Feedback>
+
+                  </InputGroup>
+                </Form.Group>
+                <Form.Group
+                  as={Col}
+                  md="12"
+                  controlId="validationFormik103"
+                  className="position-relative"
+                >
+                  <Form.Label>Password</Form.Label>
+                  <Form.Control
+                    type="password"
+                    placeholder="password"
+                    name="password"
+                    onBlur={formik.handleBlur}
+
+                    size='lg'
+                    value={formik.values.password}
+                    onChange={formik.handleChange}
+                    isValid={formik.touched.password && !formik.errors.password}
+                    isInvalid={formik.touched.password && !!formik.errors.password}
+                  />
+                  <Form.Control.Feedback type="invalid" tooltip>
+                  {formik.touched.password && formik.errors.password }
+                  </Form.Control.Feedback>
+                  <Form.Control.Feedback tooltip>Looks good!</Form.Control.Feedback>
+
+                </Form.Group>
             <Button
-              variant="primary"
+              variant="dark"
               type="submit"
               style={{
                 backgroundColor: "#464646",
                 color: "white",
                 width: "100%",
               }}
+              className="mt-5"
             >
               Sign in
             </Button>
             <Form.Group className="mb-3 text-center" controlId="formBasicCheckbox">
               Don't have an Account,
-              <Link to="/">sign up</Link>
+              <Link to="/signup">sign up</Link>
             </Form.Group>
           </Form>
         </Col>

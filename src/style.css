@@ -41,3 +41,10 @@
     border-radius: 100%;
     overflow: hidden;
 }
+
+.chat-style{
+    height: 90vh;
+    background-color: #eeeeee;
+    border: #eeeeee solid;
+    overflow: auto;
+}
