@@ -14,16 +14,17 @@ import ScrollToBottom from 'react-scroll-to-bottom';
 const ChatPage = () => {
 
   return (
-    <div className="bg-chat-img">
+    <>
+      <div className="bg-chat-img"></div>
       <Container
-      // size="lg"
+
       >
-        <ScrollToBottom className="chat-style">
-          <Container className="px-5 py-2">
-            <Row xs={1} md={2} lg={2} className="d-flex justify-content-start">
+        <ScrollToBottom className="chat-style card example-1 scrollbar-ripe-malinka">
+          <Container className="px-5 py-2 mt-5">
+            <Row xs={1} md={2} lg={2} className="d-flex justify-content-end">
               <Col
                 md={7}
-                lg= "7"
+                lg="7"
                 className=" my-2"
                 style={{ backgroundColor: "white" }}
               >
@@ -32,13 +33,13 @@ const ChatPage = () => {
                   illo ipsa quo porro nesciunt, officiis sequi velit? Omnis
                   accusantium asperiores iste harum saepe praesentium id!
                 </p>
-                <span style={{float:"right"}}>7:02pm</span>
+                <span style={{ float: "right" }}>7:02pm</span>
               </Col>
             </Row>
             <Row xs={1} md={2} lg={2} className="d-flex justify-content-start">
               <Col
                 md={7}
-                lg= "7"
+                lg="7"
 
                 className="my-2"
                 style={{ backgroundColor: "white" }}
@@ -48,48 +49,14 @@ const ChatPage = () => {
                   illo ipsa quo porro nesciunt, officiis sequi velit? Omnis
                   accusantium asperiores iste harum saepe praesentium id!
                 </p>
-                <span style={{float:"right"}}>7:02pm</span>
-
-              </Col>
-            </Row>
-            <Row xs={1} md={2} lg={2} className="d-flex justify-content-start">
-              <Col
-                md={7}
-                lg= "7"
-
-                className=" my-2"
-                style={{ backgroundColor: "white" }}
-              >
-                <p className="fs-6 fw-bold">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
-                  illo ipsa quo porro nesciunt, officiis sequi velit? Omnis
-                  accusantium asperiores iste harum saepe praesentium id!
-                </p>
-                <span style={{float:"right"}}>7:02pm</span>
-
-              </Col>
-            </Row>
-            <Row xs={1} md={2} lg={2} className="d-flex justify-content-start">
-              <Col
-                md={7}
-                lg= "7"
-
-                className=" my-2"
-                style={{ backgroundColor: "white" }}
-              >
-                <p className="fs-6 fw-bold">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
-                  illo ipsa quo porro nesciunt, officiis sequi velit? Omnis
-                  accusantium asperiores iste harum saepe praesentium id!
-                </p>
-                <span style={{float:"right"}}>7:02pm</span>
+                <span style={{ float: "right" }}>7:02pm</span>
 
               </Col>
             </Row>
             <Row xs={1} md={2} lg={2} className="d-flex justify-content-end">
               <Col
                 md={7}
-                lg= "7"
+                lg="7"
 
                 className=" my-2"
                 style={{ backgroundColor: "white" }}
@@ -99,14 +66,14 @@ const ChatPage = () => {
                   illo ipsa quo porro nesciunt, officiis sequi velit? Omnis
                   accusantium asperiores iste harum saepe praesentium id!
                 </p>
-                <span style={{float:"right"}}>7:02pm</span>
+                <span style={{ float: "right" }}>7:02pm</span>
 
               </Col>
             </Row>
             <Row xs={1} md={2} lg={2} className="d-flex justify-content-start">
               <Col
                 md={7}
-                lg= "7"
+                lg="7"
 
                 className=" my-2"
                 style={{ backgroundColor: "white" }}
@@ -116,14 +83,48 @@ const ChatPage = () => {
                   illo ipsa quo porro nesciunt, officiis sequi velit? Omnis
                   accusantium asperiores iste harum saepe praesentium id!
                 </p>
-                <span style={{float:"right"}}>7:02pm</span>
+                <span style={{ float: "right" }}>7:02pm</span>
+
+              </Col>
+            </Row>
+            <Row xs={1} md={2} lg={2} className="d-flex justify-content-end">
+              <Col
+                md={7}
+                lg="7"
+
+                className=" my-2"
+                style={{ backgroundColor: "white" }}
+              >
+                <p className="fs-6 fw-bold">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
+                  illo ipsa quo porro nesciunt, officiis sequi velit? Omnis
+                  accusantium asperiores iste harum saepe praesentium id!
+                </p>
+                <span style={{ float: "right" }}>7:02pm</span>
+
+              </Col>
+            </Row>
+            <Row xs={1} md={2} lg={2} className="d-flex justify-content-start">
+              <Col
+                md={7}
+                lg="7"
+
+                className=" my-2"
+                style={{ backgroundColor: "white" }}
+              >
+                <p className="fs-6 fw-bold">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
+                  illo ipsa quo porro nesciunt, officiis sequi velit? Omnis
+                  accusantium asperiores iste harum saepe praesentium id!
+                </p>
+                <span style={{ float: "right" }}>7:02pm</span>
 
               </Col >
             </Row>
             <Row xs={1} md={2} lg={2} className="d-flex justify-content-end ">
               <Col
                 md={7}
-                lg= "7"
+                lg="7"
 
                 className=" my-2"
                 style={{ backgroundColor: "white" }}
@@ -133,7 +134,7 @@ const ChatPage = () => {
                   illo ipsa quo porro nesciunt, officiis sequi velit? Omnis
                   accusantium asperiores iste harum saepe praesentium id!
                 </p>
-                <span style={{float:"right"}}>7:02pm</span>
+                <span style={{ float: "right" }}>7:02pm</span>
 
               </Col>
             </Row>
@@ -153,7 +154,7 @@ const ChatPage = () => {
         </ScrollToBottom>
 
       </Container>
-    </div>
+    </>
   );
 };
 

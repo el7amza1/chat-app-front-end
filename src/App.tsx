@@ -2,9 +2,9 @@ import {  Route, Routes } from "react-router-dom"
 import './App.css';
 import Header from "./components/Header";
 import ChatPage from "./pages/ChatPage";
-import ConversationList from "./pages/ConversationList";
+import ConversationList from "./pages/conversationList";
 import LogIn from "./pages/LogIn";
-import SignUp from "./pages/SignUp";
+import SignUp from "./pages/signUp";
 
 function App() {
   return (

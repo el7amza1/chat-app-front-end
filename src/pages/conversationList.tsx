@@ -1,7 +1,7 @@
 import React from 'react'
 import { Col, Image, Row } from "react-bootstrap"
 import { Link } from 'react-router-dom'
-import User1 from "../images/user1.jpg"
+import User1 from "../images/users/user1.jpg"
 
 
 const ConversationList = () => {
@@ -41,11 +41,11 @@ const ConversationList = () => {
     return (
         <div>
             <div className='bg-chat-img'></div>
-            <div style={{ overflow: "auto", height: "100vh" }} >
+            <div style={{ overflow: "auto", height: "90vh", scrollbarWidth: "none" }} className="mt-5 " >
                 {
                     users.map(ele => {
                         return (
-                        <Row md="2" lg="2" className='bg-card d-flex px-4 py-1 my-3' >
+                        <Row md="2" lg="2" className='bg-card d-flex px-4 py-1 my-3  ' >
                             <Col lg="4" md="4" style={{ backgroundImage: `url(${User1})` }} className="bg-users m-auto"></Col>
                             <Col lg="8" md="8" className="m-auto">
                                 <Link to="/chat">
