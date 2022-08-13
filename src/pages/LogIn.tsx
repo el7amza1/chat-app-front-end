@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col, Row,Form, Button, InputGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import login from "../images/login-image.jpg";
 import * as Yup from 'yup';
 import {ErrorMessage, useFormik} from "formik"
-
-
+import { loginUser ,authUser} from "../utilities/api";
 const LogIn = () => {
+  const [user , setUser] = useState({})
+  const [token , setToken] = useState({})
+  // setToken(user.data?.token)
+  console.log(user);
+
+  const getUser = async (dat:any)=> {
+    const userInfo = await loginUser(dat);
+    
+    setUser(userInfo)
+    await authUser(token)
+  } 
   const formik = useFormik(  {
     initialValues: {
 
@@ -14,8 +24,8 @@ const LogIn = () => {
       password:"",
     },
     onSubmit: (values) => {
-        
-       
+      
+      getUser(values)
        formik.resetForm();
     },
     validationSchema: Yup.object({

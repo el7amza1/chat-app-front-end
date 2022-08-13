@@ -1,7 +1,6 @@
 import React from 'react'
-
-const api = () => {
-
-}
-
-export default api
+import axios from 'axios'
+export const api = axios.create({baseURL: "http://localhost:4000"})
+export const signUp = (data:any)=> api.post("/users/signup", data )
+export const loginUser = (data:any)=> api.post("/users/login",data)
+export const authUser = (token:any)=> api.get('/users/me',token)

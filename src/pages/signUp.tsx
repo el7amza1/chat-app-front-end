@@ -1,20 +1,15 @@
-import { url } from 'inspector'
-import { Button, Col, Form, InputGroup, Overlay, Row } from "react-bootstrap"
-import { Link } from 'react-router-dom'
+import { Button, Col, Form, InputGroup, Row } from "react-bootstrap"
 import { useFormik } from "formik"
 import * as Yup from 'yup';
-import axios from 'axios'
-import { useRef } from 'react';
-
+import { useState } from 'react';
+import { signUp } from "../utilities/api";
+import { Link } from "react-router-dom";
 const SignUp = () => {
-  // const { Formik } = Formik;
+  
+  const sendUser = async (data:any)=>{
+    await signUp(data)
 
-  // const schema = Yup.object().shape({
-  //   firstName: Yup.string().required().max(20, "limit passed"),
-  //   lastName: Yup.string().required().max(20, "limit passed"),
-  //   email: Yup.string().required().min(5).max(80, "limit passed"),
-  //   password: Yup.string().required().min(8).max(50, "limit passed"),
-  // });
+  }
 
   const formik = useFormik({
       initialValues: {
@@ -25,8 +20,7 @@ const SignUp = () => {
       },
       onSubmit: (values) => {
           console.log(values);
-
-
+          sendUser(values)
           formik.resetForm();
       },
       validationSchema: Yup.object({
@@ -44,26 +38,6 @@ const SignUp = () => {
         </Col>
         <Col md={6} lg={6}
           className='bg-form d-flex justify-content-center align-items-center' >
-          {/* <Formik
-            validationSchema={schema}
-            onSubmit={console.log}
-            initialValues={{
-              firstName: '',
-              lastName: '',
-              email: '',
-              password: '',
-            }}
-          >
-            {({
-              handleSubmit,
-              handleChange,
-              handleBlur,
-              values,
-              touched,
-              isValid,
-              errors,
-              resetForm,
-            }) => ( */}
               <Form className='w-50' noValidate onSubmit={formik.handleSubmit}>
                 <Form.Group
                   as={Col}
@@ -163,6 +137,10 @@ const SignUp = () => {
                 </Form.Group>
                 <Button className='bg-button w-100 mt-5' type="submit" size='lg'
                 >SIGN UP</Button>
+                <div className="text-center">
+                have an Account,
+              <Link to="/login">Login</Link>
+                </div>
               </Form>
 
         </Col>
