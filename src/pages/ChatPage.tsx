@@ -8,17 +8,13 @@ import {
   Col,
   Container,
 } from "react-bootstrap";
-import ScrollToBottom from 'react-scroll-to-bottom';
-
+import ScrollToBottom from "react-scroll-to-bottom";
 
 const ChatPage = () => {
-
   return (
     <>
       <div className="bg-chat-img"></div>
-      <Container
-
-      >
+      <Container>
         <ScrollToBottom className="chat-style card example-1 scrollbar-ripe-malinka">
           <Container className="px-5 py-2 mt-5">
             <Row xs={1} md={2} lg={2} className="d-flex justify-content-end">
@@ -40,7 +36,6 @@ const ChatPage = () => {
               <Col
                 md={7}
                 lg="7"
-
                 className="my-2"
                 style={{ backgroundColor: "white" }}
               >
@@ -50,14 +45,12 @@ const ChatPage = () => {
                   accusantium asperiores iste harum saepe praesentium id!
                 </p>
                 <span style={{ float: "right" }}>7:02pm</span>
-
               </Col>
             </Row>
             <Row xs={1} md={2} lg={2} className="d-flex justify-content-end">
               <Col
                 md={7}
                 lg="7"
-
                 className=" my-2"
                 style={{ backgroundColor: "white" }}
               >
@@ -67,14 +60,12 @@ const ChatPage = () => {
                   accusantium asperiores iste harum saepe praesentium id!
                 </p>
                 <span style={{ float: "right" }}>7:02pm</span>
-
               </Col>
             </Row>
             <Row xs={1} md={2} lg={2} className="d-flex justify-content-start">
               <Col
                 md={7}
                 lg="7"
-
                 className=" my-2"
                 style={{ backgroundColor: "white" }}
               >
@@ -84,14 +75,12 @@ const ChatPage = () => {
                   accusantium asperiores iste harum saepe praesentium id!
                 </p>
                 <span style={{ float: "right" }}>7:02pm</span>
-
               </Col>
             </Row>
             <Row xs={1} md={2} lg={2} className="d-flex justify-content-end">
               <Col
                 md={7}
                 lg="7"
-
                 className=" my-2"
                 style={{ backgroundColor: "white" }}
               >
@@ -101,14 +90,12 @@ const ChatPage = () => {
                   accusantium asperiores iste harum saepe praesentium id!
                 </p>
                 <span style={{ float: "right" }}>7:02pm</span>
-
               </Col>
             </Row>
             <Row xs={1} md={2} lg={2} className="d-flex justify-content-start">
               <Col
                 md={7}
                 lg="7"
-
                 className=" my-2"
                 style={{ backgroundColor: "white" }}
               >
@@ -118,14 +105,12 @@ const ChatPage = () => {
                   accusantium asperiores iste harum saepe praesentium id!
                 </p>
                 <span style={{ float: "right" }}>7:02pm</span>
-
-              </Col >
+              </Col>
             </Row>
             <Row xs={1} md={2} lg={2} className="d-flex justify-content-end ">
               <Col
                 md={7}
                 lg="7"
-
                 className=" my-2"
                 style={{ backgroundColor: "white" }}
               >
@@ -135,10 +120,9 @@ const ChatPage = () => {
                   accusantium asperiores iste harum saepe praesentium id!
                 </p>
                 <span style={{ float: "right" }}>7:02pm</span>
-
               </Col>
             </Row>
-          </Container >
+          </Container>
           <div className="py-0 sticky-bottom">
             <InputGroup className="">
               <Form.Control
@@ -152,7 +136,6 @@ const ChatPage = () => {
             </InputGroup>
           </div>
         </ScrollToBottom>
-
       </Container>
     </>
   );
