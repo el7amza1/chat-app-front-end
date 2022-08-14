@@ -1,4 +1,25 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { useState } from "react";
-export const userReducer = {
-}
+import type { PayloadAction } from "@reduxjs/toolkit";
+import type { RootState } from "../store";
+import { User } from "../../types";
+
+const initialState: User = {
+  firstName: "",
+  lastName: "",
+  password: "",
+  email: "",
+};
+
+export const userReducer = createSlice({
+  name: "user",
+  initialState,
+  reducers: {
+    getUser: (state, action) => {
+      state = action.payload;
+    },
+  },
+});
+
+export const { getUser } = userReducer.actions;
+export default userReducer.reducer;
+
