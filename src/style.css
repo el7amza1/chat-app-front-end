@@ -1,0 +1,51 @@
+
+
+
+.bg-signup-img{
+    background-image: url(images/signup.jpg);
+    background-size: cover;
+    background-position: center;
+
+}
+
+.bg-form{
+    background-color: #eeeeee;
+}
+.bg-button{
+    background-color: #464646 !important;
+}
+
+.bg-chat-img{
+    background-image: url("images/chat.jpg") ;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    filter: grayscale(85%);
+    z-index: -2;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.bg-card{
+    background-color: #eeeeee;
+    width: 20%;
+    margin-left: 13%;
+    height: 130px;
+}
+.bg-users{
+    background-position: center;
+    background-size: cover;
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.chat-style{
+    height: 90vh;
+    background-color: #eeeeee;
+    border: #eeeeee solid;
+    overflow: auto;
+}
