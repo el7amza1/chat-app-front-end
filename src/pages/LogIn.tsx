@@ -6,21 +6,21 @@ import { loginUser, authUser } from "../utilities/api";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser } from "../redux/reducers/userReducer";
 import * as Yup from "yup";
+import { useAppDispatch } from "../redux/hooks";
+import { getToken } from "../redux/reducers/authslice";
 const LogIn = () => {
   const navigate = useNavigate()
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const getUserInfo = async (dat: any) => {
     const res = await loginUser(dat);
     dispatch(getUser(res?.data.user));
+    dispatch(getToken(res?.data.token))
     localStorage.setItem("token", JSON.stringify(res?.data.token));
+    navigate("/home" ) 
 
   };
-  const navigateFun = () => {
-    if (localStorage.length > 0) { navigate("/home", { replace: true }) }
-    else {
-      alert("email or password not valid")
-    }
-  }
+
+
   console.log();
   
   const formik = useFormik({
@@ -31,7 +31,6 @@ const LogIn = () => {
     onSubmit: (values) => {
       getUserInfo(values);
       formik.resetForm();
-      navigateFun()
     },
     validationSchema: Yup.object({
       email: Yup.string().required().min(5).max(80, "limit passed"),

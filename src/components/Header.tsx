@@ -1,16 +1,21 @@
 import React from "react";
 import { Button, Container, Navbar } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
-
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import {useAppDispatch, useAppSelector} from "../redux/hooks"
+import { getToken } from "../redux/reducers/authslice";
 const Header = () => {
   const navigate = useNavigate()
-  const token = localStorage.getItem('token')
-
-  const clearLocalStorage= ()=>{
-    localStorage.removeItem("token") 
-    navigate("/home", { replace: true })
+  const dispatch = useAppDispatch();
   
+  const clearLocalStorage=  ()=>{
+    dispatch(getToken("")) 
+    console.log(token);
+    
+    localStorage.removeItem("token") 
+    navigate("/login" ,{replace:true})
   }
+  
+  const token = useAppSelector(state=> state.token.token)
   return (
     <Navbar bg="light" fixed="top" style={{width:"100%"}}>
       <Container>
@@ -30,7 +35,9 @@ const Header = () => {
             <Link to="/signup">signUp</Link>
           </li>
         </ul>
-        {  token  !== "" ?  <Button onClick={clearLocalStorage}>log out</Button> : "" }
+        {  token !== "" ?  <Button onClick={()=>clearLocalStorage()}>log out</Button> : ""
+
+  }
       </Container>
     </Navbar>
   );
