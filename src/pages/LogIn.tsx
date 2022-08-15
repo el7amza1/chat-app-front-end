@@ -14,10 +14,9 @@ const LogIn = () => {
   const getUserInfo = async (dat: any) => {
     const res = await loginUser(dat);
     dispatch(getUser(res?.data.user));
-    dispatch(getToken(res?.data.token))
     localStorage.setItem("token", JSON.stringify(res?.data.token));
+    dispatch(getToken(res?.data.token))
     navigate("/home" ) 
-
   };
 
 

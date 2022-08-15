@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header";
@@ -10,8 +10,9 @@ import { useAppSelector } from "./redux/hooks";
 
 function App() {
   const token = useAppSelector(state=> state.token.token)
-  console.log(token);
-  
+  useEffect(()=>{
+    console.log(token);
+  },[])
   return (
     <div className="App">
       <Header />
