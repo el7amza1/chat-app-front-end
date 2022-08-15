@@ -43,9 +43,9 @@ const ConversationList = () => {
             <div className='bg-chat-img'></div>
             <div style={{ overflow: "auto", height: "90vh", scrollbarWidth: "none" }} className="mt-5 " >
                 {
-                    users.map(ele => {
+                    users.map((ele,inx) => {
                         return (
-                        <Row md="2" lg="2" className='bg-card d-flex px-4 py-1 my-3  ' >
+                        <Row key={inx} md="2" lg="2" className='bg-card d-flex px-4 py-1 my-3  ' >
                             <Col lg="4" md="4" style={{ backgroundImage: `url(${User1})` }} className="bg-users m-auto"></Col>
                             <Col lg="8" md="8" className="m-auto">
                                 <Link to="/chat">

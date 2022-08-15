@@ -1,5 +1,5 @@
 import { Col, Row, Form, Button, InputGroup } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import login from "../images/login-image.jpg";
 import { ErrorMessage, useFormik } from "formik";
 import { loginUser, authUser } from "../utilities/api";
@@ -7,12 +7,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUser } from "../redux/reducers/userReducer";
 import * as Yup from "yup";
 const LogIn = () => {
+  const navigate = useNavigate()
   const dispatch = useDispatch();
   const getUserInfo = async (dat: any) => {
     const res = await loginUser(dat);
     dispatch(getUser(res?.data.user));
     localStorage.setItem("token", JSON.stringify(res?.data.token));
+
   };
+  const navigateFun = () => {
+    if (localStorage.length > 0) { navigate("/home", { replace: true }) }
+    else {
+      alert("email or password not valid")
+    }
+  }
+  console.log();
+  
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -21,6 +31,7 @@ const LogIn = () => {
     onSubmit: (values) => {
       getUserInfo(values);
       formik.resetForm();
+      navigateFun()
     },
     validationSchema: Yup.object({
       email: Yup.string().required().min(5).max(80, "limit passed"),

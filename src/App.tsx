@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header";
 import ChatPage from "./pages/ChatPage";
@@ -7,14 +7,17 @@ import LogIn from "./pages/LogIn";
 import SignUp from "./pages/signUp";
 
 function App() {
+  const token = localStorage.getItem('token')
+  console.log(token);
+  
   return (
     <div className="App">
       <Header />
       <Routes>
-        <Route path="/login" element={<LogIn />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/home" element={<ConversationList />} />
-        <Route path="/chat" element={<ChatPage />} />
+        <Route path="/login" element={token  ? <Navigate to="/home" /> : <LogIn />} />
+        <Route path="/signup" element={token ? <Navigate to="/home" /> : <SignUp />} />
+        <Route path="/home" element={token  ? <ConversationList /> : <Navigate to="/login" /> } />
+        <Route path="/chat" element={token  ?  <ChatPage /> : <Navigate to="/login" />} />
       </Routes>
     </div>
   );
