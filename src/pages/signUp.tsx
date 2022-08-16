@@ -4,9 +4,10 @@ import * as Yup from 'yup';
 import { useState } from 'react';
 import { signUp } from "../utilities/api";
 import { Link } from "react-router-dom";
+import { UserType } from "../types";
 const SignUp = () => {
   
-  const sendUser = async (data:any)=>{
+  const sendUser = async (data:UserType)=>{
     await signUp(data)
 
   }

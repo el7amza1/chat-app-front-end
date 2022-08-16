@@ -10,7 +10,6 @@ export const loginUser = async (data: any) => {
   } catch (e) {
     console.log(e);
     alert("email or password not valid")
-
   }
 };
 export const authUser = (token: any) => api.get("/users/me", token);

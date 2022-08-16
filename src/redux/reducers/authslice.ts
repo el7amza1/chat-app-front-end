@@ -1,10 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { type } from "os";
+import { TokenType } from "../../types";
 
 
 const token = localStorage.getItem("token")
 console.log(token);
 
-const initialState = {
+const initialState : TokenType= {
     token : token !== null ? JSON.parse(token ) : ""
 }
 export const authToken = createSlice({

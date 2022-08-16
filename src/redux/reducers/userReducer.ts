@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../store";
-import { User } from "../../types";
+import { UserType } from "../../types";
 
-const initialState: User = {
+const initialState: UserType = {
   firstName: "",
   lastName: "",
   password: "",

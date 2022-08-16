@@ -1,18 +1,18 @@
 import { Col, Row, Form, Button, InputGroup } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import login from "../images/login-image.jpg";
-import { ErrorMessage, useFormik } from "formik";
-import { loginUser, authUser } from "../utilities/api";
-import { useDispatch, useSelector } from "react-redux";
+import { useFormik } from "formik";
+import { loginUser } from "../utilities/api";
 import { getUser } from "../redux/reducers/userReducer";
 import * as Yup from "yup";
 import { useAppDispatch } from "../redux/hooks";
 import { getToken } from "../redux/reducers/authslice";
+import { LoginUser } from "../types";
 const LogIn = () => {
   const navigate = useNavigate()
   const dispatch = useAppDispatch();
-  const getUserInfo = async (dat: any) => {
-    const res = await loginUser(dat);
+  const getUserInfo = async (data: LoginUser) => {
+    const res = await loginUser(data);
     dispatch(getUser(res?.data.user));
     localStorage.setItem("token", JSON.stringify(res?.data.token));
     dispatch(getToken(res?.data.token))
