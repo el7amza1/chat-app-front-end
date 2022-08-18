@@ -7,17 +7,21 @@ import ConversationList from "./pages/conversationList";
 import LogIn from "./pages/LogIn";
 import SignUp from "./pages/signUp";
 import { useAppSelector } from "./redux/hooks";
+import Protected from "./utilities/Protected";
 
 function App() {
-  const token = useAppSelector(state=> state.token.token)
-  useEffect(()=>{
+  const token = useAppSelector(state => state.token.token)
+  useEffect(() => {
     console.log(token);
-  },[])
+  }, [])
   return (
     <div className="App">
       <Header />
       <Routes>
-        <Route path="/login" element={token  !== ""? <Navigate to="/home" /> : <LogIn />} />
+
+  
+     
+        <Route path="/login" element={token  !== "" ? <Navigate to="/home" /> : <LogIn />} />
         <Route path="/signup" element={token !== "" ? <Navigate to="/home" /> : <SignUp />} />
         <Route path="/home" element={token  !== ""? <ConversationList /> : <Navigate to="/login" /> } />
         <Route path="/chat" element={token !== "" ?  <ChatPage /> : <Navigate to="/login" />} />

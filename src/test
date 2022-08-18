@@ -1,0 +1,18 @@
+   <Route path="/login" element={
+        // <Protected>
+          <LogIn />
+        // </Protected>
+      }
+         />
+        <Route path="/signup" element={
+        // <Protected>
+          <SignUp />
+        // </Protected>
+        } />
+        <Route path="/home" element={<Protected>
+          <ConversationList />
+        </Protected>} />
+        <Route path="/chat" element={<Protected>
+          <ChatPage />
+        </Protected>
+        } />
