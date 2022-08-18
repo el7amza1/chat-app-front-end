@@ -33,7 +33,7 @@ const Header = () => {
             <Link to="/signup">signUp</Link>
           </li>
         </ul>
-        {token !== "" ? <Button onClick={clearLocalStorage}>log out</Button> : ""
+        {token && <Button onClick={clearLocalStorage}>log out</Button> 
 
         }
       </Container>
