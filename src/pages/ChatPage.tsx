@@ -1,15 +1,20 @@
 import { useState } from "react";
-import {
-  Button,
-  InputGroup,  
-  Form,
-  Row,
-  Col,
-  Container,
-} from "react-bootstrap";
+import { Button, InputGroup, Form, Row, Col, Container } from "react-bootstrap";
 import ScrollToBottom from "react-scroll-to-bottom";
+import { Socket } from "socket.io-client";
+import { useFormik } from "formik";
 
 const ChatPage = () => {
+  
+  const formik = useFormik({
+    initialValues: {
+      body: "",
+    },
+    onSubmit: (values) => {
+      console.log(values);
+    },
+  });
+
   return (
     <>
       <div className="bg-chat-img"></div>
@@ -122,7 +127,7 @@ const ChatPage = () => {
               </Col>
             </Row>
           </Container>
-          <div className="py-0 sticky-bottom">
+          <Form className="py-0 sticky-bottom">
             <InputGroup className="">
               <Form.Control
                 placeholder=""
@@ -133,7 +138,7 @@ const ChatPage = () => {
                 SEND
               </Button>
             </InputGroup>
-          </div>
+          </Form>
         </ScrollToBottom>
       </Container>
     </>

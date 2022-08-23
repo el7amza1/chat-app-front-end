@@ -1,30 +1,29 @@
 import React from "react";
 import { Button, Container, Navbar } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../redux/hooks"
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { getToken } from "../redux/reducers/authslice";
 const Header = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
   const clearLocalStorage = () => {
-    localStorage.removeItem("token")
-    dispatch(getToken(""))
-    navigate("/login")
-  }
+    localStorage.removeItem("token");
+    dispatch(getToken(""));
+    navigate("/login");
+  };
 
-  const token = useAppSelector(state => state.token.token)
+  const token = useAppSelector((state) => state.token.token);
   return (
     <Navbar bg="light" fixed="top" style={{ width: "100%" }}>
       <Container>
-        <Navbar.Brand  >IBRAHIM & EL-HAMZA App
-        </Navbar.Brand>
+        <Navbar.Brand>IBRAHIM & EL-HAMZA App</Navbar.Brand>
         <ul className="d-flex list-none">
           <li>
             <Link to="/home">home</Link>
           </li>
           <li>
-            <Link to="/chat" > chat</Link>
+            <Link to="/chat"> chat</Link>
           </li>
           <li>
             <Link to="/login">login</Link>
@@ -33,9 +32,7 @@ const Header = () => {
             <Link to="/signup">signUp</Link>
           </li>
         </ul>
-        {token && <Button onClick={clearLocalStorage}>log out</Button> 
-
-        }
+        {token && <Button onClick={clearLocalStorage}>log out</Button>}
       </Container>
     </Navbar>
   );

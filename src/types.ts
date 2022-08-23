@@ -1,14 +1,20 @@
 export interface LoginUser {
-  email : string;
-  password : string
+  email: string;
+  password: string;
 }
 
-export interface UserType extends LoginUser{
+export interface UserType extends LoginUser {
   id?: number;
   firstName: string;
   lastName: string;
+  image?: string;
+  message?: string[];
 }
 
 export interface TokenType {
-  token : string
+  token: string;
+}
+
+export interface UsersType {
+  users: UserType[];
 }
