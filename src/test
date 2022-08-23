@@ -9,10 +9,12 @@
           <SignUp />
         // </Protected>
         } />
-        <Route path="/home" element={<Protected>
+        <Route path="/home" element={
+          <Protected>
           <ConversationList />
         </Protected>} />
-        <Route path="/chat" element={<Protected>
+        <Route path="/chat" element={
+          <Protected>
           <ChatPage />
         </Protected>
         } />

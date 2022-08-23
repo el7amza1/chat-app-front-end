@@ -7,7 +7,7 @@ const token = localStorage.getItem("token")
 console.log(token);
 
 const initialState : TokenType= {
-    token : token !== null ? token  : ""
+    token : token !== null  ? token  : ""
 }
 export const authToken = createSlice({
     name: "auth",
@@ -18,6 +18,7 @@ export const authToken = createSlice({
         }
     }
 })
+
 
 export const {getToken} = authToken.actions;
 
