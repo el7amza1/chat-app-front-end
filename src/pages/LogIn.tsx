@@ -9,8 +9,8 @@ import { useAppDispatch } from "../redux/hooks";
 import { getToken } from "../redux/reducers/authslice";
 import { LoginUser } from "../types";
 const LogIn = () => {
+  const navigate = useNavigate()
   const dispatch = useAppDispatch();
-  const navigete = useNavigate
   const getUserInfo = async (data: LoginUser) => {
     const res = await loginUser(data);
     dispatch(getUser(res?.data.user));
